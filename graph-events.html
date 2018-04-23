@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+       <link rel="stylesheet" type="text/css" href="./css/style.css">
+   </head>
+   <body style="height: 100%; margin: 0">
+      <div class="" ="btn">
+         <ul >
+                <li onclick=editNode()><svg class="icon" aria-hidden="true"><use xlink:href="#icon-edit"></use></svg></li>
+                <li onclick=addNode()><svg class="icon" aria-hidden="true"><use xlink:href="#icon-add"></use></svg></li>
+                <li onclick=deleteNode()><svg class="icon" aria-hidden="true"><use xlink:href="#icon-subtract"></use></svg></li>
+        </ul>
+      </div>
+      <div class="add-box" style="padding:3px"><!--actually just use input1 to test function-->
+      
+                                            <div>
+                                                <label>节点名称</label>
+                                                <input tabindex="109" id="input1" type="text" autocomplete="off"/>
+                                            </div>
+                                       
+                                        
+                                            <div><label>节点数值</label>
+                                                <input tabindex="110" autocomplete="off" /></div>
+                                       
+      </div>
+       <div id="container" style="height: 100%"></div>
+       <script  src="echarts.js"></script>
+       <script  src="option.js"></script>
+        <script  src="events-func.js"></script>
+        <script src="./css/iconfont.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom)
+//preProcess()
+option = null
+var TimeFn = null                           //avoid click cover dblclick
+var preName=null
+
+var selectInfo={
+                state:false,
+                index:null,
+                name:null
+}
+myChart.on('click',selectEle.bind(this))
+myChart.on('dblclick',spreadAndcontract)    //dbl,not "db"
+
+  
+    myChart.setOption(option = {
+        tooltip: {
+            trigger: 'item',
+            triggerOn: 'mousemove'
+        },
+        series: [
+            {
+                zoom:3,
+                type: 'graph',
+                layout: 'force',
+                category:categories,
+                symbolSize: 34,
+                animationDurationUpdate: 750
+
+            }
+        ]
+    })
+  
+myChart.setOption(optionFromDB)
+
+       </script>
+      <style type="text/css">  /*adjust list to side-to-side array*/
+      ul{list-style-type:none;margin:0;padding:0;overflow:hidden;background-color: gray}
+      li{float:left;padding: 11px;}
+      li:hover{background-color: #484848;}
+      </style>
+   </body>
+</html>
