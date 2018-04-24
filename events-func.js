@@ -31,7 +31,8 @@
  	console.log(optionFromDB)
  	//
  	selectInfo.state = false
-
+	 options.series[0].itemStyle.opacity = 1
+	 options.series[0].lineStyle.opacity = 1
  	myChart.setOption(options);
  }
 
